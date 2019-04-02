@@ -7,7 +7,7 @@ import {reqLogin} from "../../api";
 import {setItem} from "../../utils/storage-utils";
 
 
-import logo from './logo.png';
+import logo from '../../assets/images/logo.png';
 import './index.less';
 
 const Item = Form.Item;
