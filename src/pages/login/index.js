@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {
-    Form, Icon, Input, Button, Checkbox,
+    Form, Icon, Input, Button,message
 } from 'antd';
+
+import {reqLogin} from "../../api";
+import {setItem} from "../../utils/storage-utils";
+
 
 import logo from './logo.png';
 import './index.less';
@@ -16,14 +20,29 @@ class Login extends Component {
         //获取部分表单数据  this.props.form.getFieldsValue(['username']);
         //获取一组表单数据  this.props.form.getFieldsValue();
         //获取单个表单数据  this.props.form.getFieldValue('username');
-        this.props.form.validateFields((err,values)=>{
-               if (!err){
-                   console.log(values);
-               }else {
-                   console.log('====表单校验失败=====');
-                   console.log(err);
-                   console.log('====表单校验失败=====');
-               }
+        this.props.form.validateFields(async (err, values) => {
+            if (!err) {
+                const {username, password} = values;
+                const result = await reqLogin(username, password);
+                if (result.status === 0) {
+
+                    // 提示登录成功，保存用户登录信息，跳转到主页面
+                    message.success('登录成功~');
+
+                    //保存用户数据
+                    setItem(result.data);
+
+                    // 已经登录成功，不需要回退了~
+                    this.props.history.replace('/');
+                }else {
+                    // 登录失败
+                    message.error(result.msg, 2);
+                }
+            } else {
+                console.log('====表单校验失败=====');
+                console.log(err);
+                console.log('====表单校验失败=====');
+            }
         })
 
     }

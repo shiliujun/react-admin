@@ -1,7 +1,7 @@
 const { override, fixBabelImports, addLessLoader, addBabelPlugins } = require('customize-cra');
 
 module.exports = override(
-    //实现按区加载
+    //实现按需加载
     fixBabelImports('import', {
         libraryName: 'antd',
         libraryDirectory: 'es',
