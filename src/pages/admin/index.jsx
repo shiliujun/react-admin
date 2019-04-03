@@ -8,7 +8,8 @@ import {Layout} from 'antd';
 import Home from '../home';
 import Category from '../category';
 import Product from '../product';
-import LeftNav from '$components/left-nav';
+import HeaderMain from '$comp/header-main';
+import LeftNav from '$comp/left-nav';
 import {getItem} from "$utils/storage-utils";
 import memory from '$utils/memory-utils';
 
@@ -60,15 +61,17 @@ export default class Admin extends Component {
                     <LeftNav opacity={opacity}/>
                 </Sider>
                 <Layout>
-                    <Header style={{background: '#fff', padding: 0}}/>
-                    <Content style={{margin: '20px 16px'}}>
-                        <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                    <Header style={{ background: '#fff', padding: 0 , height: 100}}>
+                        <HeaderMain />
+                    </Header>
+                    <Content style={{ margin: '20px 16px' }}>
+                        <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                             <Route path="/home" component={Home}/>
                             <Route path="/category" component={Category}/>
                             <Route path="/product" component={Product}/>
                         </div>
                     </Content>
-                    <Footer style={{textAlign: 'center'}}>
+                    <Footer style={{ textAlign: 'center' }}>
                         推荐使用谷歌浏览器，可以获得更佳页面操作体验
                     </Footer>
                 </Layout>

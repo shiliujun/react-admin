@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Switch,Redirect} from 'react-router-dom';
 
-import Login from './pages/login';
-import Admin from './pages/admin';
+import Login from './pages/login/index';
+import Admin from './pages/admin/index';
 import './assets/less/reset.less';
 
 export default class App extends Component {
