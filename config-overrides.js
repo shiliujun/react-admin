@@ -29,6 +29,7 @@ module.exports = override(
         $api: resolve(__dirname, 'src/api'),
         $assets: resolve(__dirname, 'src/assets'),
         $comp: resolve(__dirname, 'src/components'),
+        $config: resolve(__dirname, 'src/config'),
     })
 );
 

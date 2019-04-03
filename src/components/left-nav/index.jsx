@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import {Menu, Icon} from "antd";
+
 import menuList from '../../config/menu-config';
 import logo from '../../assets/images/logo.png';
 import './index.less';
