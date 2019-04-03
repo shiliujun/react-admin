@@ -8,11 +8,10 @@ import {Layout} from 'antd';
 import Home from '../home';
 import Category from '../category';
 import Product from '../product';
-import LeftNav from '../../components/left-nav';
-import {getItem} from "../../utils/storage-utils";
-import memory from '../../utils/memory-utils';
-import logo from '../../assets/images/logo.png';
-import './index.less';
+import LeftNav from '$components/left-nav';
+import {getItem} from "$utils/storage-utils";
+import memory from '$utils/memory-utils';
+
 
 const {
     Header, Content, Footer, Sider,
@@ -58,11 +57,7 @@ export default class Admin extends Component {
                     collapsed={collapsed}
                     onCollapse={this.onCollapse}
                 >
-                    <Link to="/home" className="logo">
-                        <img src={logo} alt="logo"/>
-                        <h1 style={{opacity}}>硅谷后台</h1>
-                    </Link>
-                    <LeftNav/>
+                    <LeftNav opacity={opacity}/>
                 </Sider>
                 <Layout>
                     <Header style={{background: '#fff', padding: 0}}/>

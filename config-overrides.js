@@ -1,5 +1,5 @@
-const { override, fixBabelImports, addLessLoader, addBabelPlugins } = require('customize-cra');
-
+const { override, fixBabelImports, addLessLoader, addBabelPlugins ,addDecoratorsLegacy,addWebpackAlias} = require('customize-cra');
+const { resolve } = require('path');
 module.exports = override(
     //实现按需加载
     fixBabelImports('import', {
@@ -12,8 +12,7 @@ module.exports = override(
         javascriptEnabled: true,
         modifyVars: { '@primary-color': '#1DA57A' },
     }),
-    // 修改 create-react-app 的 webpack 的配置
-    module.exports = override(
+    /*// 修改 create-react-app 的 webpack 的配置
         // 添加 babel 插件
         addBabelPlugins(
             [
@@ -22,8 +21,15 @@ module.exports = override(
                     "legacy": true
                 }
             ]
-        )
-    )
+        )*/
+    addDecoratorsLegacy(),
+    // 配置路径的别名 - 注意以特殊符号开头，防止与正常路径冲突
+    addWebpackAlias({
+        $utils: resolve(__dirname, 'src/utils'),
+        $api: resolve(__dirname, 'src/api'),
+        $assets: resolve(__dirname, 'src/assets'),
+        $components: resolve(__dirname, 'src/components'),
+    })
 );
 
 
