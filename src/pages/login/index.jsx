@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Form, Icon, Input, Button,message
+    Form, Icon, Input, Button, message
 } from 'antd';
 
 import {reqLogin} from "../../api";
@@ -34,7 +34,7 @@ class Login extends Component {
 
                     // 已经登录成功，不需要回退了~
                     this.props.history.replace('/');
-                }else {
+                } else {
                     // 登录失败
                     message.error(result.msg, 2);
                 }
@@ -86,7 +86,7 @@ class Login extends Component {
                                         {pattern: /^[a-zA-Z0-9_]+$/, message: '用户名必须是英文，数字，下划线'}
                                     ]
                                 })
-                                (<Input prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                                (<Input prefix={<Icon type="user" style={{color:'rgba(0,0,0,.25)'}}/>}
                                         placeholder="用户名"/>)
                             }
                         </Item>
@@ -99,7 +99,7 @@ class Login extends Component {
                                         {validator: this.validator}
                                     ]
                                 })
-                                (<Input prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>} type="password"
+                                (<Input prefix={<Icon type="lock" style={{color:'rgba(0,0,0,.25)'}}/>} type="password"
                                         placeholder="密码"/>)
                             }
                         </Item>
