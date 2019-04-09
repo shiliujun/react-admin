@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react';
-import { Card, Table, Select, Button, Input, Icon, message } from 'antd';
-import { Link } from 'react-router-dom';
+import React, {Component, Fragment} from 'react';
+import {Card, Table, Select, Button, Input, Icon, message} from 'antd';
+import {Link} from 'react-router-dom';
 
 import MyButton from '$comp/my-button';
-import { reqGetProducts, reqSearch } from '$api';
+import {reqGetProducts, reqSearch} from '$api';
 import './index.less';
 
 const Option = Select.Option;
@@ -21,6 +21,7 @@ export default class Product extends Component {
 
         this.searchContentInput = React.createRef();
     }
+
     // 可复用
     columns = [
         {
@@ -69,7 +70,7 @@ export default class Product extends Component {
 
     getProducts = async (pageNum, pageSize = 3) => {
 
-        const { searchType } = this.state;
+        const {searchType} = this.state;
         const searchContent = this.searchContent;
         // console.log(searchContent);
 
@@ -115,7 +116,7 @@ export default class Product extends Component {
     }
 
     render() {
-        const { products, total } = this.state;
+        const {products, total} = this.state;
 
         return (
             <Card
